@@ -21,3 +21,7 @@ def learn(input_):
             else:
                 db['stops'].add(ngram)
             db['ngram'].add(ngram)
+            for w in ngram:
+                if w not in db['word']:
+                    db['word'][w] = set()
+                db['word'][w].add(ngram)
