@@ -1,2 +1,20 @@
+import random
+from nlpbot.learn import db
+
+
 def generate_output(message=None):
-    pass
+    ngram = random.choice(list(db['ngram']))
+    prevs = []
+    nexts = []
+    cur = ngram
+    while cur not in db['starts']:
+        prev = random.choice(list(db['prev'][cur]))
+        prevs.append(prev)
+        cur = (prev,) + cur[:-1]
+    cur = ngram
+    while cur not in db['stops']:
+        next_ = random.choice(list(db['next'][cur]))
+        nexts.append(next_)
+        cur = cur[1:] + (next_,)
+    output = tuple(prevs) + ngram + tuple(nexts)
+    return ' '.join(output)
