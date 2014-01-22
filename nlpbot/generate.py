@@ -3,7 +3,14 @@ from nlpbot.core import db
 
 
 def generate_output(message=None):
-    ngram = random.choice(list(db['ngram']))
+    if message:
+        ngram = None
+    else:
+        ngram = random.choice(list(db['ngram']))
+    return build_sentence(ngram)
+
+
+def build_sentence(ngram):
     prevs = []
     nexts = []
     cur = ngram
