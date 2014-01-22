@@ -51,3 +51,6 @@ docs/_build/
 
 #JetBrains
 .idea/
+
+#Coverage
+coverage-report/
