@@ -10,8 +10,8 @@ db = {
 }
 
 
-def learn(input):
-    for sentence in nltk.sent_tokenize(input):
+def learn(input_):
+    for sentence in nltk.sent_tokenize(input_):
         tokens = nltk.word_tokenize(sentence)
         for i in range(len(tokens)-N_GRAM):
             ngram = tuple(tokens[i:i+N_GRAM])
