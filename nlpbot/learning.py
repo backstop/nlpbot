@@ -1,13 +1,6 @@
 import nltk
+from nlpbot.core import db
 N_GRAM = 4
-
-db = {
-    'prev':{},
-    'next':{},
-    'ngram':set(),
-    'starts':set(),
-    'stops':set()
-}
 
 
 def learn(input_):

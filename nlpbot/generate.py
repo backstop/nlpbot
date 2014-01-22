@@ -1,5 +1,5 @@
 import random
-from nlpbot.learning import db
+from nlpbot.core import db
 
 
 def generate_output(message=None):
