@@ -11,6 +11,7 @@ def generate_output(message=None):
         prev = random.choice(list(db['prev'][cur]))
         prevs.append(prev)
         cur = (prev,) + cur[:-1]
+    prevs.reverse()
     cur = ngram
     while cur not in db['stops']:
         next_ = random.choice(list(db['next'][cur]))
