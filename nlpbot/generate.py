@@ -24,7 +24,8 @@ def generate_output(message=None):
         entities = list(get_entities(message))
         if entities:
             entity = random.choice(entities)
-            ngram = random.choice(list(db['word'][entity]))
+            if entity in db['word']:
+                ngram = random.choice(list(db['word'][entity]))
     return build_sentence(ngram)
 
 
